@@ -153,7 +153,7 @@ def test_performance_select_like(db_connection, column, pattern):
 
         # Замер времени выполнения запроса с индексом
         start_time_with_index = time.time()
-        cursor.execute(f"SELECT {column} FROM {TABLE_NAME} WHERE {column} LIKE '%{pattern}'")
+        cursor.execute(f"SELECT {column} FROM {TABLE_NAME} WHERE {column} LIKE '{pattern}%'")
         result_with_index = cursor.fetchall()
         time_with_index = time.time() - start_time_with_index
 
